@@ -25,10 +25,11 @@ class HomeViewModel (private val mainRepository: InhabitantsRepository) : ViewMo
     fun getAllInhabitants() {
 
         // Check if there is connection available
-        val networkInfo = (MyApp.applicationContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetworkInfo
+        val networkInfo = (MyApp.applicationContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).activeNetwork
+
 
         // If there is connection getAll info from service and insert into local db
-        if(networkInfo != null && networkInfo.isConnected) {
+        if(networkInfo != null) {
             job = CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
                 val response = mainRepository.getAllHabitants()
                 withContext(Dispatchers.Main) {
