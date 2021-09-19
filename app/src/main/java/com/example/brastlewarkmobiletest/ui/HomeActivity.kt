@@ -39,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
             HomeViewModel::class.java)
 
         viewModel.inhabitantsList.observe(this, { result ->
+
             adapter = InhabitantsAdapter(result, onInhabitantSelected)
 
             result.forEach {

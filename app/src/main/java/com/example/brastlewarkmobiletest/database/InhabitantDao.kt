@@ -9,7 +9,7 @@ import com.example.brastlewarkmobiletest.domain.Inhabitant
 @Dao
 interface InhabitantDao {
     @Query("SELECT * from inhabitants")
-    fun getAll(): List<Inhabitant>
+    fun getAll(): List<Inhabitant>?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(inhabitant: Inhabitant)

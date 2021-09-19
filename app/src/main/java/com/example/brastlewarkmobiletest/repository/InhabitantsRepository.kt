@@ -15,4 +15,8 @@ class InhabitantsRepository constructor(private val service: Service) {
     fun insert(inhabitant: Inhabitant) {
         if(inhabitant != null) inhabitantDao?.insert(inhabitant)
     }
+
+    fun getAll() : List<Inhabitant>? {
+        return inhabitantDao?.getAll()
+    }
 }
