@@ -6,11 +6,13 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface Service {
 
     @GET("data.json")
     suspend fun getAllInhabitants() : Response<GetInhabitantsResponse>
+
 
     companion object {
         var service: Service? = null

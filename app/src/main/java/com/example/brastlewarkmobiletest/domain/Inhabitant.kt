@@ -8,7 +8,8 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "inhabitants")
 data class Inhabitant (
-    @Ignore
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "inhabitant_id")
     @SerializedName("id")
     var id: Int,
     @SerializedName("name")
@@ -29,7 +30,4 @@ data class Inhabitant (
     var friends : List<String>
 ) {
     constructor() : this (0, "","",0, 0.0,0.0,"", emptyList(), emptyList())
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "employee_id")
-    var employeeId: Int = 0
 }
