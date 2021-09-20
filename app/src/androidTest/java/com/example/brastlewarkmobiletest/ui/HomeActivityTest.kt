@@ -28,16 +28,16 @@ class HomeActivityTest {
 
     }
 
-    /*@Test
-    fun searchViewTestTypeText() {
-        Espresso.onView(withId(R.id.searchView)).perform(typeText("F"), closeSoftKeyboard())
-
-        Espresso.onView(withId(R.id.searchView)).check(matches(withText("I")))
-    }*/
-
     @Test
     fun recyclerViewClick() {
         Espresso.onView(withId(R.id.inhabitantsRecyclerView)).perform(RecyclerViewActions.actionOnItemAtPosition<InhabitantsAdapter.ViewHolder>(1, click()))
+    }
+
+    @Test
+    fun searchViewTestTypeText() {
+       Espresso.onView(withId(R.id.searchView)).perform(typeText("F"), closeSoftKeyboard())
+
+       Espresso.onView(withId(R.id.searchView)).check(matches(withText("I")))
     }
 
 }
